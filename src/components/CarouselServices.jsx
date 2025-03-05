@@ -128,7 +128,7 @@ const CarouselServices = () => {
               <div className="pr-2">
                 <ul className="text-sm text-gray-600 list-disc pl-5 space-y-2">
                   {card.items.map((item, i) => (
-                    <li key={i}>{item}</li>
+                    <li className='text-base font-light' key={i}>{item}</li>
                   ))}
                 </ul>
               </div>

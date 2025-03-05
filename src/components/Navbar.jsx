@@ -3,42 +3,39 @@
 
   const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [bgcolor, setBgColor] = useState()
+  //   const [bgcolor, setBgColor] = useState()
 
-    useEffect(() => {
-      const handleScrooll = () => {
-          if (window.scrollY > 50) {
-              setBgColor(false)
-          } else {
-              setBgColor(true)
-          }
+  //   useEffect(() => {
+  //     const handleScrooll = () => {
+  //         if (window.scrollY > 50) {
+  //             setBgColor(false)
+  //         } else {
+  //             setBgColor(true)
+  //         }
 
-      }
-      window.addEventListener('scroll', handleScrooll)
-      return () => window.removeEventListener('scroll', handleScrooll)
+  //     }
+  //     window.addEventListener('scroll', handleScrooll)
+  //     return () => window.removeEventListener('scroll', handleScrooll)
 
-  }, [])
+  // }, [])
 
 
-  const nextCards = () => {
-    console.log('assaas')
-  };
     return (
-      <nav className={`${bgcolor ? 'bg-white/50' : 'bg-sky-400/90'} fixed lg:top-4 left-0 w- z-50 w-full lg:w-[80%] mx-auto right-0 lg:rounded-full`}>
+      <nav className={`absolute text-white bg-transparent  top-0 left-0 z-50 w-full mx-auto right-0`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             {/* Logo */}
-            <a href="/" className="text-2xl font-bold text-sky-900">Smart IH</a>
+            <a href="/" className="text-4xl font-bold">Smart IH</a>
 
             {/* Menú desktop */}
-            <div className="hidden md:flex space-x-6">
-              <a href="#features" className="text-gray-700 hover:text-blue-600">Características</a>
-              <a href="#testimonials" className="text-gray-700 hover:text-blue-600">Testimonios</a>
-              <a href="#contacto" className="text-gray-700 hover:text-blue-600">Contacto</a>
+            <div className="hidden md:flex space-x-6 text-xl opacity-80 font-light">
+              <a href="#features" className=" hover:text-blue-600">Características</a>
+              <a href="#testimonials" className=" hover:text-blue-600">Testimonios</a>
+              <a href="#contacto" className=" hover:text-blue-600">Contacto</a>
             </div>
 
             {/* Botón de acción */}
-            <a href="#contacto" className="hidden md:block btn btn-soft btn-primary rounded-full">
+            <a href="#contacto" className="hidden md:block btn btn-soft btn-primary rounded-full text-2xl">
               ¡Empieza ahora!
             </a>
 
