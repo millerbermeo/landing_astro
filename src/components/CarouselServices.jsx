@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const CarouselServices = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -59,37 +59,37 @@ const CarouselServices = () => {
       items: features,
     },
     {
-      image: "https://www.comparapps.com/wp-content/uploads/2022/02/sistemas-de-inventarios.png",
+      image: "https://img.freepik.com/fotos-premium/cesta-compras-digital-e-iconos-descuento_1174497-139114.jpg",
       name: "Módulo de Productos",
       description: "Gestión de productos simples y compuestos.",
       items: features2,
     },
     {
-      image: "https://www.comparapps.com/wp-content/uploads/2022/02/sistemas-de-inventarios.png",
+      image: "https://img.freepik.com/vector-premium/vibrante-coleccion-graficos-herramientas-materiales-estudio-que-representan-organizacion-datos-metodos-productividad-busca-informacion-sobre-reglas_538213-151720.jpg",
       name: "Módulo de Materiales",
       description: "Gestión eficiente de materiales.",
       items: features4,
     },
     {
-      image: "https://www.comparapps.com/wp-content/uploads/2022/02/sistemas-de-inventarios.png",
+      image: "https://www.shutterstock.com/image-vector/perspective-view-warehouse-cardboard-boxes-600nw-2165606791.jpg",
       name: "Módulo de Almacenamiento",
       description: "Gestión de bodegas.",
       items: features4,
     },
     {
-      image: "https://www.comparapps.com/wp-content/uploads/2022/02/sistemas-de-inventarios.png",
+      image: "https://www.questionpro.com/blog/wp-content/uploads/2020/11/Portada-mejora-el-proceso-de-compra-de-los-clientes.jpg",
       name: "Módulo de Servicios",
       description: "Gestión de mesas, pagos y domicilios.",
       items: features5,
     },
     {
-      image: "https://www.comparapps.com/wp-content/uploads/2022/02/sistemas-de-inventarios.png",
+      image: "img1.png",
       name: "Módulo de Venta de Productos",
       description: "Gestión de ventas y facturación.",
       items: features6,
     },
     {
-      image: "https://www.comparapps.com/wp-content/uploads/2022/02/sistemas-de-inventarios.png",
+      image: "https://www-cms.pipedriveassets.com/cdn-cgi/image/quality=70,format=auto/https://www-cms.pipedriveassets.com/What-is-Sales.png",
       name: "Módulo de Órdenes o Pedidos",
       description: "Gestión de órdenes y pagos.",
       items: features7,
@@ -106,51 +106,61 @@ const CarouselServices = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? servicesCards.length - cardsPerPage : prevIndex - 1));
   };
 
+  // Autoplay
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextCards();
+    }, 2000); // cada 2 segundos
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="relative h-screen flex w-full justify-center items-center">
-      <div className="flex overflow-x-hidden gap-10 transition-transform duration-500">
-        {servicesCards.slice(currentIndex, currentIndex + cardsPerPage).map((card, index) => (
-          <div
-            key={index}
-            className="bg-white border border-gray-300 rounded-2xl overflow-hidden transform transition-transform duration-500 flex flex-col w-96 h-full"
-          >
-            <div className="relative w-full h-full">
-              <img
-                src={card.image}
-                alt={card.name}
-                className="w-full h-full object-cover transition-opacity duration-700 opacity-100"
-                style={{ transition: 'opacity 0.7s ease-in-out' }}
-              />
-            </div>
-            <div className="p-5 flex flex-col gap-3 flex-grow">
-              <h2 className="text-2xl font-semibold text-gray-800">{card.name}</h2>
-              <p className="text-md text-gray-700 leading-relaxed">{card.description}</p>
-              <div className="pr-2">
-                <ul className="text-sm text-gray-600 list-disc pl-5 space-y-2">
-                  {card.items.map((item, i) => (
-                    <li className='text-base font-light' key={i}>{item}</li>
-                  ))}
-                </ul>
+    <div className="relative w-full h-screen flex items-center justify-center">
+
+      <div className="carousel max-w-4xl w-full flex py-10">
+        <div
+          className="flex transition-transform duration-700 ease-in-out mx-auto w-auto"
+          style={{ transform: `translateX(-${currentIndex * (100 / cardsPerPage)}%)` }}
+        >
+          {servicesCards.map((card, index) => (
+            <div
+              key={index}
+              className="carousel-item w-1/3 px-4 shrink-0 flex justify-center items-center"
+            >
+              <div className="card bg-base-100 w-full shadow-lg  max-w-[300px]  hover:scale-105 transition-transform duration-500 rounded-2xl overflow-hidden flex flex-col h-auto">
+                <figure className="relative w-full h-40">
+                  <img
+                    src={card.image}
+                    alt={card.name}
+                    className="w-full h-full object-cover"
+                  />
+                </figure>
+                <div className="card-body p-4 flex flex-col items-start justify-start gap-2">
+                  <h2 className="card-title text-xl font-semibold">{card.name}</h2>
+                  <p className="text-sm text-gray-500">{card.description}</p>
+                  <ul className="list-disc list-inside text-sm text-gray-700">
+                    {card.items.map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+
+          ))}
+        </div>
       </div>
 
-
-      {/* Botones de navegación */}
-      <button
-        className="absolute top-1/2 left-40 transform -translate-y-1/2 bg-gray-700 p-3 text-white rounded-full w-12 h-12 cursor-pointer"
-        onClick={prevCards}
-      >
-        &#60;
-      </button>
-      <button
-        className="absolute top-1/2 right-40 z-50 transform -translate-y-1/2 bg-gray-700 p-3 text-white rounded-full w-12 h-12 cursor-pointer"
-        onClick={nextCards}
-      >
-        &#62;
-      </button>
+      {/* Botones de navegación estilo DaisyUI */}
+      <div className="absolute flex justify-between w-full max-w-4xl px-6 top-1/2 -translate-y-1/2">
+        <button onClick={prevCards} className="btn btn-circle bg-white shadow-md">
+          ❮
+        </button>
+        <button onClick={nextCards} className="btn btn-circle bg-white shadow-md">
+          ❯
+        </button>
+      </div>
     </div>
 
 

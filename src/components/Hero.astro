@@ -33,24 +33,33 @@
     </ul>
     <div class="flex justify-between mx-auto w-[90%] items-center gap-10">
         <div class="w-full flex flex-col items-start space-y-6">
-            <h1 class="text-7xl font-extrabold text-white leading-tight relative">
+            <h1
+                class="text-7xl 2xl:text-8xl font-extrabold text-white leading-tight relative"
+            >
                 Bienvenido
-                <span class="absolute px-4 py-1 rounded-full bg-amber-600 text-black text-base font-semibold top-0 -right-16 transform rotate-12">
+                <span
+                    class="absolute px-4 py-1 rounded-full bg-amber-600 text-black text-base font-semibold top-0 -right-16 transform rotate-12"
+                >
                     S.I.H
                 </span>
             </h1>
-            <p class="text-4xl font-semibold text-gray-300 max-w-3xl">
-                Sistema POS con facturación electrónica
+            <p
+                class="text-4xl 2xl:text-5xl font-semibold text-gray-300 max-w-3xl"
+            >
+                <span class="text-amber-600"> Sistema POS</span> control ventas e
+                inventario
             </p>
-            <p class="text-lg text-gray-200 mb-6">
-                –
-                Potencia tu negocio con nuestra solución integral.<br />
-                Gestiona tus productos y ventas con un sistema POS avanzado, <span class="underline">
-                    integrado
-                con facturación electrónica para un control total y eficiente.
+            <p class="text-lg 2xl:text-xl font-extralight text-gray-200 mb-6">
+                - Potencia tu negocio con nuestra solución integral.<br />
+                Gestiona tus productos y ventas con un sistema POS avanzado, <br
+                />
+                integrado con absoluto <span
+                    class="text-[#003092] bg-white/70 rounded-2xl px-2 font-normal"
+                >
+                    control total y eficiente.
                 </span>
             </p>
-        
+
             <a
                 href="#contacto"
                 class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg transform transition-transform hover:scale-105"
@@ -58,7 +67,7 @@
                 ¡Prueba Gratis!
             </a>
         </div>
-        
+
         <div class="w-full flex justify-center items-center">
             <!-- Blobs de fondo -->
             <div class="absolute inset-0 flex justify-center items-center">
@@ -77,11 +86,21 @@
             </div>
 
             <!-- Imagen principal -->
-            <img
-                class="relative z-10 w-full scale-125 max-w-full drop-shadow-2xl rounded-full"
-                src="smart.png"
-                alt="Computadora"
-            />  
+            <div class="relative group w-full max-w-[500px] 2xl:max-w-[600px]">
+                <!-- Imagen principal -->
+                <img
+                    class="w-full transition-opacity duration-500 group-hover:opacity-0 z-10 relative drop-shadow-2xl"
+                    src="fondo1.png"
+                    alt="Computadora"
+                />
+
+                <!-- Imagen secundaria que aparece al hacer hover -->
+                <img
+                    class="absolute top-0 left-0 w-full transition-opacity duration-500 opacity-0 group-hover:opacity-100 z-0"
+                    src="fondo2.png"
+                    alt="Computadora Hover"
+                />
+            </div>
         </div>
     </div>
 </section>
