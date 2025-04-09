@@ -170,13 +170,13 @@ const CarouselServices = () => {
       <div className="absolute flex justify-between items-center w-full max-w-7xl px-6 top-1/2 -translate-y-1/2">
         <button
           onClick={prevCards}
-          className="btn btn-circle bg-white text-black shadow-md hover:scale-110"
+          className="btn btn-circle bg-[#0C69A3] text-white shadow-md hover:scale-110"
         >
           ❮
         </button>
         <button
           onClick={nextCards}
-          className="btn btn-circle bg-white text-black shadow-md hover:scale-110"
+          className="btn btn-circle bg-[#0C69A3] text-white shadow-md hover:scale-110"
         >
           ❯
         </button>
