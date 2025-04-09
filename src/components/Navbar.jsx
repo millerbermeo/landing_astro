@@ -28,7 +28,7 @@ const Navbar = () => {
           <a href="/" className="text-4xl font-bold">Smart IH</a>
 
           {/* Menú desktop */}
-          <div className="hidden md:flex space-x-6 text-xl opacity-80 font-light">
+          <div className="hidden md:flex space-x-6 text-xl  font-light">
             <a href="#features" className=" hover:text-blue-600">Características</a>
             <a href="#testimonials" className=" hover:text-blue-600">Testimonios</a>
             <a href="#contacto" className=" hover:text-blue-600">Contacto</a>
