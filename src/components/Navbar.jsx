@@ -21,8 +21,8 @@ const Navbar = () => {
 
 
   return (
-    <nav className={`absolute bg-gradient-to-r from-sky-900 to-sky-700 text-white md:bg-  top-0 left-0 z-50 w-full mx-auto right-0`}>
-      <div className="max-w-[80%] mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className={`absolute  lg:bg-transparent text-white md:bg-  top-0 left-0 z-50 w-full mx-auto right-0`}>
+      <div className="w-[91%] 2xl:w-[80%] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <a href="/" className="text-4xl font-bold">Smart IH</a>

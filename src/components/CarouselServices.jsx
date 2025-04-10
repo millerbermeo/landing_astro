@@ -1,8 +1,6 @@
-import { useState, useEffect } from 'react';
+
 
 const CarouselServices = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [cardsPerPage, setCardsPerPage] = useState(3);
 
   const features = [
     "✅ Creación, actualización y eliminación de usuarios.",
@@ -96,91 +94,31 @@ const CarouselServices = () => {
     }
   ];
 
-  useEffect(() => {
-    const updateCardsPerPage = () => {
-      const width = window.innerWidth;
-      if (width < 640) setCardsPerPage(1); // sm
-      else if (width < 1024) setCardsPerPage(2); // md
-      else setCardsPerPage(3); // lg y más
-    };
 
-    updateCardsPerPage();
-    window.addEventListener('resize', updateCardsPerPage);
-    return () => window.removeEventListener('resize', updateCardsPerPage);
-  }, []);
-
-  const nextCards = () => {
-    setCurrentIndex((prevIndex) =>
-      (prevIndex + 1) % (servicesCards.length - cardsPerPage + 1)
-    );
-  };
-
-  const prevCards = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? servicesCards.length - cardsPerPage : prevIndex - 1
-    );
-  };
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextCards();
-    }, 3000); // autoplay cada 4s
-    return () => clearInterval(interval);
-  }, [cardsPerPage]);
 
   return (
-    <div className="relative w-full flex items-center justify-center ">
-      <div className="carousel  w-full h-[60vh] flex items-center">
+    <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {servicesCards.map((card, index) => (
         <div
-          className="flex transition-transform duration-700 ease-in-out"
-          style={{
-            width: `${(servicesCards.length * 100) / cardsPerPage}%`,
-            transform: `translateX(-${(currentIndex * 100) / servicesCards.length}%)`,
-          }}
+          key={index}
+          className="bg-white shadow-md rounded-2xl overflow-hidden transition-transform duration-300 hover:scale-105"
         >
-          {servicesCards.map((card, index) => (
-            <div
-              key={index}
-              className="w-full sm:w-1/2 lg:w-1/3 px-4 shrink-0 flex justify-center items-stretch"
-            >
-              <div className="bg-[#ffffff] shadow-lg rounded-2xl cursor-pointer overflow-hidden transition-transform duration-500 hover:scale-105 max-w-sm w-full flex flex-col">
-                <figure className="h-40 w-full">
-                  <img
-                    src={card.image}
-                    alt={card.name}
-                    className="w-full h-full object-cover"
-                  />
-                </figure>
-                <div className="p-4 flex flex-col gap-2">
-                  <h3 className="text-lg font-semibold text-gray-800">{card.name}</h3>
-                  <p className="text-sm text-gray-500">{card.description}</p>
-                  <ul className="list-disc list-inside text-sm text-gray-700">
-                    {card.items.map((item, i) => (
-                      <li key={i}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          ))}
+          <img
+            src={card.image}
+            alt={card.name}
+            className="w-full h-48 object-cover"
+          />
+          <div className="p-4 flex flex-col gap-2">
+            <h3 className="text-lg font-bold text-gray-800">{card.name}</h3>
+            <p className="text-sm text-gray-600">{card.description}</p>
+            <ul className="list-disc list-inside text-sm text-gray-700 space-y-1">
+              {card.items.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
+          </div>
         </div>
-      </div>
-
-      {/* Botones */}
-      <div className="absolute flex justify-between items-center w-full max-w-7xl px-6 top-1/2 -translate-y-1/2">
-        <button
-          onClick={prevCards}
-          className="btn btn-circle bg-[#0C69A3] text-white shadow-md hover:scale-110"
-        >
-          ❮
-        </button>
-        <button
-          onClick={nextCards}
-          className="btn btn-circle bg-[#0C69A3] text-white shadow-md hover:scale-110"
-        >
-          ❯
-        </button>
-      </div>
+      ))}
     </div>
 
 
