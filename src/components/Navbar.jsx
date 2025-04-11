@@ -25,7 +25,7 @@ const Navbar = () => {
 
 
       <nav className={`absolute lg:bg-transparent text-white top-0 left-0 z-50 w-full mx-auto right-0`}>
-        <div class="w-full bg-[#98D8EF]  text-sm text-gray-700">
+        <div class="w-full bg-[#ffffff]  text-sm text-gray-700">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-8">
 
             <div class="flex items-center gap-4">
@@ -66,7 +66,7 @@ const Navbar = () => {
             </div>
 
             {/* Botón de acción */}
-            <a href="#contacto" className="hidden md:block btn btn-soft btn-primary text-sky-900 rounded-full text-2xl">
+            <a href="#contacto" className="hidden md:block btn btn-soft btn-primary  bg-sky-600 text-white border-none text-sky-900 rounded-full text-2xl">
               ¡Empieza ahora!
             </a>
 
