@@ -66,7 +66,7 @@ const Navbar = () => {
             </div>
 
             {/* Botón de acción */}
-            <a href="#contacto" className="hidden md:block btn btn-soft btn-primary  bg-sky-600 text-white border-none text-sky-900 rounded-full text-2xl">
+            <a href="#contacto" className="hidden md:block btn btn-soft btn-primary  bg-sky-600 text-white border-none rounded-full text-2xl">
               ¡Empieza ahora!
             </a>
 
